@@ -93,8 +93,8 @@ class LLMJudge(ResponseGenerator):
     ) -> None:
         """
         Class for using LLM-as-a-judge to score proposed answers to questions based on correctness. Four off-the-shelf
-        templates are offered: incorrect/uncertain/correct (0/0.5/1), incorrect/correct (0/1),continuous score (0 to 1), and likert
-        scale score(1-5 scale,normalized to 0/0.25/0.5/0.75/1).
+        templates are offered: incorrect/uncertain/correct (0/0.5/1), incorrect/correct (0/1), continuous score (0 to 1), and likert
+        scale score ( 1-5 scale, normalized to 0/0.25/0.5/0.75/1).
         Customization is also supported for user-provided classification-based judging templates. The correct/incorrect/uncertain
         template is based on Chen and Mueller(2023) :footcite:`chen2023quantifyinguncertaintyanswerslanguage`
 
@@ -110,7 +110,7 @@ class LLMJudge(ResponseGenerator):
 
         scoring_template : {'true_false_uncertain', 'true_false', 'continuous','likert'}, default='true_false_uncertain'
              specifies which off-the-shelf template to use, if any. Four off-the-shelf templates offered:
-             incorrect/uncertain/correct (0/0.5/1), incorrect/correct (0/1),continuous score (0 to 1), and likert scale score(1-5 scale,normalized to 0/0.25/0.5/0.75/1).
+             incorrect/uncertain/correct (0/0.5/1), incorrect/correct (0/1), continuous score (0 to 1), and likert scale score ( 1-5 scale, normalized to 0/0.25/0.5/0.75/1).
              These templates are respectively specified as 'true_false_uncertain', 'true_false','continuous', and 'likert'
 
         system_prompt : str or None, default=None
