@@ -65,7 +65,6 @@ Your task is to score the answer on a scale from 1 to 5, with 5 being the highes
 3 - Partially correct: The answer has some correct elements but also contains errors.
 4 - Mostly correct: The answer is largely accurate with only minor errors or omissions.
 5 - Completely correct: The answer is fully accurate and comprehensive.
-You should score the answer based on your knowledge of the corresponding question.
 Give only the numerical score (1-5) with no explanation.
 """
 
