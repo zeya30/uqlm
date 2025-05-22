@@ -107,10 +107,10 @@ class LLMJudge(ResponseGenerator):
             Specifies how many api calls to make per minute to avoid a rate limit error. By default, no
             limit is specified.
 
-        scoring_template : {'true_false_uncertain', 'true_false', 'continuous','likert'}, default='true_false_uncertain'
+        scoring_template : {'true_false_uncertain', 'true_false', 'continuous', 'likert'}, default='true_false_uncertain'
              specifies which off-the-shelf template to use, if any. Four off-the-shelf templates offered:
              incorrect/uncertain/correct (0/0.5/1), incorrect/correct (0/1), continuous score (0 to 1), and likert scale score ( 1-5 scale, normalized to 0/0.25/0.5/0.75/1).
-             These templates are respectively specified as 'true_false_uncertain', 'true_false','continuous', and 'likert'
+             These templates are respectively specified as 'true_false_uncertain', 'true_false', 'continuous', and 'likert'
 
         system_prompt : str or None, default=None
             Optional argument for user to provide custom system prompt. If None, a default instruction
