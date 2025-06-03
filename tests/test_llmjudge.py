@@ -31,7 +31,7 @@ def mock_llm():
 @pytest.fixture  
 def test_data():
    """Load test data for all templates."""
-   datafile_path = "data/scorers/llmjudge_results_file.json"
+   datafile_path = "tests/data/scorers/llmjudge_results_file.json"
    with open(datafile_path, "r") as f:
        return json.load(f)
    
