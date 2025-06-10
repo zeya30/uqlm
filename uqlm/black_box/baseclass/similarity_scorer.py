@@ -25,6 +25,6 @@ class SimilarityScorer(ABC):
         pass
 
     @abstractmethod
-    def evaluate(self,responses: List[str], sampled_responses: List[str]) -> List[float]:
+    def evaluate(self, responses: List[str], sampled_responses: List[str]) -> List[float]:
         """Abstract method for metric computation"""
         pass

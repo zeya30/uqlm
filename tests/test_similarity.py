@@ -29,39 +29,25 @@ sampled_responses = data["sampled_responses"]
 
 def test_bert():
     bert = BertScorer()
-    bert_result = bert.evaluate(
-        responses=responses, sampled_responses=sampled_responses
-    )
-    assert all(
-        [
-            abs(bert_result[i] - data["bert_result"][i]) < 1e-5
-            for i in range(len(bert_result))
-        ]
-    )
+    bert_result = bert.evaluate(responses=responses, sampled_responses=sampled_responses)
+    assert all([abs(bert_result[i] - data["bert_result"][i]) < 1e-5 for i in range(len(bert_result))])
 
-@unittest.skipIf(
-    (os.getenv("CI") == "true"),
-    "Skipping test in CI due to dependency on GitHub repository.",
-)
+
+@unittest.skipIf((os.getenv("CI") == "true"), "Skipping test in CI due to dependency on GitHub repository.")
 def test_bluert():
     try:
         from uqlm.black_box import BLEURTScorer
+
         bluert = BLEURTScorer()
-        
-    except ImportError:  
+
+    except ImportError:
         from unittest.mock import MagicMock
-        bluert=MagicMock()
-        bluert.evaluate.return_value=data["bluert_result"]
-   
-    bluert_result = bluert.evaluate(
-        responses=responses, sampled_responses=sampled_responses
-    )
-    assert all(
-        [
-            abs(bluert_result[i] - data["bluert_result"][i]) < 1e-5
-            for i in range(len(bluert_result))
-        ]
-    )  
+
+        bluert = MagicMock()
+        bluert.evaluate.return_value = data["bluert_result"]
+
+    bluert_result = bluert.evaluate(responses=responses, sampled_responses=sampled_responses)
+    assert all([abs(bluert_result[i] - data["bluert_result"][i]) < 1e-5 for i in range(len(bluert_result))])
 
 
 def test_cosine(monkeypatch):
@@ -77,37 +63,27 @@ def test_cosine(monkeypatch):
 
     monkeypatch.setattr(cosine.model, "encode", mock_encode)
 
-    cosine_result = cosine.evaluate(
-        responses=responses, sampled_responses=sampled_responses
-    )
-    assert all(
-        [
-            abs(cosine_result[i] - data["cosine_result"][i]) < 1e-5
-            for i in range(len(cosine_result))
-        ]
-    )
+    cosine_result = cosine.evaluate(responses=responses, sampled_responses=sampled_responses)
+    assert all([abs(cosine_result[i] - data["cosine_result"][i]) < 1e-5 for i in range(len(cosine_result))])
 
 
 def test_exact_match():
     match = MatchScorer()
-    match_result = match.evaluate(
-        responses=responses, sampled_responses=sampled_responses
-    )
-    assert all(
-        [
-            abs(match_result[i] - data["match_result"][i]) < 1e-5
-            for i in range(len(match_result))
-        ]
-    )
+    match_result = match.evaluate(responses=responses, sampled_responses=sampled_responses)
+    assert all([abs(match_result[i] - data["match_result"][i]) < 1e-5 for i in range(len(match_result))])
+
 
 def test_abstract_base_class():
-   """Test to cover abstract base class"""
-   class TestSimilarityScorer(SimilarityScorer):
-       def __init__(self):
-           super().__init__()
-       def evaluate(self, responses, sampled_responses):
-           super().evaluate(responses, sampled_responses)  
-           return [1.0]
-   scorer = TestSimilarityScorer()
-   result = scorer.evaluate(["test"], ["sample"])
-   assert result == [1.0]    
+    """Test to cover abstract base class"""
+
+    class TestSimilarityScorer(SimilarityScorer):
+        def __init__(self):
+            super().__init__()
+
+        def evaluate(self, responses, sampled_responses):
+            super().evaluate(responses, sampled_responses)
+            return [1.0]
+
+    scorer = TestSimilarityScorer()
+    result = scorer.evaluate(["test"], ["sample"])
+    assert result == [1.0]
