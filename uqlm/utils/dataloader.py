@@ -227,6 +227,7 @@ def _dataset_processing(df: pd.DataFrame, rename_columns: dict = None, subset_co
             if rfilter["operation"] == "search":
                 if not rfilter.get("group", None):
                     rfilter["group"] = 0
+
                 df[rfilter["col"]] = df[rfilter["col"]].apply(lambda x: re.search(rfilter["pattern"], x).group(rfilter["group"]) if re.search(rfilter["pattern"], x) else x)
     if subset_columns:
         cols = subset_columns

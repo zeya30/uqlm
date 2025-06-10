@@ -72,7 +72,6 @@ def test_exact_match():
     match_result = match.evaluate(responses=responses, sampled_responses=sampled_responses)
     assert all([abs(match_result[i] - data["match_result"][i]) < 1e-5 for i in range(len(match_result))])
 
-
 def test_abstract_base_class():
     """Test to cover abstract base class"""
 
@@ -87,3 +86,4 @@ def test_abstract_base_class():
     scorer = TestSimilarityScorer()
     result = scorer.evaluate(["test"], ["sample"])
     assert result == [1.0]
+
