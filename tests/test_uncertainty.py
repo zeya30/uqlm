@@ -121,6 +121,7 @@ def test_uq_result():
     df = uq_result.to_df()
     assert len(df) == 2
 
+
 @pytest.mark.asyncio
 async def test_multiple_logprobs_and_temperature(monkeypatch):
     """Test multiple_logprobs.append in generate_candidate_responses and Temperature handling in _generate_responses"""
@@ -160,9 +161,3 @@ async def test_multiple_logprobs_and_temperature(monkeypatch):
     assert result is not None
     assert "responses" in result
     assert "logprobs" in result
-
-
-
-
-   
-
