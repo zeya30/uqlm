@@ -73,7 +73,7 @@ async def test_llmpanel(monkeypatch, quantifier):
 
     assert result.data == expected_result["data"]
     assert result.metadata == expected_result["metadata"]
-  
+
 
 def test_scoring_templates_length_validation():
     """Test ValueError when scoring_templates length != judges length"""
@@ -82,7 +82,8 @@ def test_scoring_templates_length_validation():
     mock_llm = MagicMock(spec=BaseChatModel)
     with pytest.raises(ValueError) as value_error:
         LLMPanel(judges=[judge1, judge2], llm=mock_llm, scoring_templates=["template1"])
-    assert "Length of scoring_templates list must be equal to length of judges list" == str(value_error.value) 
+    assert "Length of scoring_templates list must be equal to length of judges list" == str(value_error.value)
+
 
 def test_custom_scoring_templates():
     """Test the else branch when custom scoring_templates provided"""
@@ -91,12 +92,14 @@ def test_custom_scoring_templates():
     panel = LLMPanel(judges=[judge1], llm=mock_llm, scoring_templates=["custom_template"])
     assert panel.scoring_templates == ["custom_template"]
 
+
 def test_invalid_judge_type():
     """Test ValueError for invalid judge types"""
     mock_llm = MagicMock(spec=BaseChatModel)
     with pytest.raises(ValueError) as value_error:
         LLMPanel(judges=["invalid_judge"], llm=mock_llm)
-    assert "judges must be a list containing instances of either LLMJudge or BaseChatModel" == str(value_error.value)    
+    assert "judges must be a list containing instances of either LLMJudge or BaseChatModel" == str(value_error.value)
+
 
 def test_basechatmodel_judge_conversion(monkeypatch):
     """Test BaseChatModel judges get converted to LLMJudge"""
@@ -107,5 +110,3 @@ def test_basechatmodel_judge_conversion(monkeypatch):
     monkeypatch.setattr("uqlm.judges.judge.LLMJudge", lambda **kwargs: mock_llm_judge)
     panel = LLMPanel(judges=[mock_judge], llm=mock_llm)
     assert len(panel.judges) == 1
-
-
