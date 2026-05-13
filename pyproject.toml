@@ -59,6 +59,7 @@ dev = [
     "ipykernel>=6.29.5,<7.0.0",
     "langchain-openai>=0.2.6",
     "langchain-google-vertexai>=2.0.8",
+    "nbconvert>=7.17.1",
 ]
 docs = [
     "sphinx==7.4.7",
@@ -80,6 +81,9 @@ test = [
     "pytest-cov>=6,<8",
     "pytest-rerunfailures>=16.0,<17.0",
 ]
+
+[project.optional-dependencies]
+langgraph = ["langgraph>=0.2"]
 
 [build-system]
 requires = ["hatchling"]
