@@ -38,13 +38,14 @@
 </p>
 <p align="center">
   <a href="https://www.jmlr.org/papers/v27/25-1557.html">
-    <img src="https://img.shields.io/badge/JMLR-Published-112467?style=flat&style=for-the-badge&logo=semantic-scholar&logoColor=white" alt="JMLR Publication">
+    <img src="https://img.shields.io/badge/JMLR-UQLM-112467?style=flat&style=for-the-badge&logo=semantic-scholar&logoColor=white" alt="JMLR Publication">
   </a>
   <a href="https://openreview.net/pdf?id=WOFspd4lq5">
-    <img src="https://img.shields.io/badge/TMLR-Published-4FA1CA?style=flat&logo=semantic-scholar&logoColor=white" alt="TMLR Publication">
+    <img src="https://img.shields.io/badge/TMLR-EnsembleUQ-4FA1CA?style=flat&logo=semantic-scholar&logoColor=white" alt="TMLR Publication">
   </a>
-  <a href="https://arxiv.org/abs/2602.17431">
-    <img src="https://img.shields.io/badge/arXiv-LongTextUQ-B31B1B?logo=arXiv&logoColor=white" alt="arXiv">
+  </a>
+  <a href="https://openreview.net/pdf?id=gngp4Zz9Sj">
+    <img src="https://img.shields.io/badge/TMLR-LongTextUQ-4FA1CA?style=flat&logo=semantic-scholar&logoColor=white" alt="TMLR Publication">
   </a>
 </p>
 
@@ -397,16 +398,17 @@ The `uqlm` software package is described in this **[this paper](https://arxiv.or
 }
 ```
 
-The long-text methods and experiment results are described in [**this paper**](https://arxiv.org/abs/2602.17431), available as a preprint on arXiv. To cite:
+The long-text methods and experiment results are described in **[this paper](https://openreview.net/pdf?id=gngp4Zz9Sj)**, published in **Transactions on Machine Learning Research (TMLR)**. If you use our long-form UQ methods, please cite:
 ```bibtex
-@misc{bouchard2026finegraineduncertaintyquantificationlongform,
-      title={Fine-Grained Uncertainty Quantification for Long-Form Language Model Outputs: A Comparative Study}, 
-      author={Dylan Bouchard and Mohit Singh Chauhan and Viren Bajaj and David Skarbrevik},
-      year={2026},
-      eprint={2602.17431},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL},
-      url={https://arxiv.org/abs/2602.17431}, 
+@article{
+bouchard2026finegrained,
+title={Fine-Grained Uncertainty Quantification for Long-Form Language Model Outputs: A Comparative Study},
+author={Dylan Bouchard and Mohit Singh Chauhan and Viren Bajaj and David Skarbrevik},
+journal={Transactions on Machine Learning Research},
+issn={2835-8856},
+year={2026},
+url={https://openreview.net/forum?id=gngp4Zz9Sj},
+note={}
 }
 ```
 
