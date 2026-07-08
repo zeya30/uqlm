@@ -390,6 +390,8 @@ class TestMatchedUnitScorerUnmocked:
         assert cosine_lists[1].shape == (1, 1)
         for array in cosine_lists:
             assert np.all(np.isfinite(array))
-            assert np.all((array >= 0) & (array <= 1))
+            # Allow float32 rounding headroom: dot(v, v)/||v||^2 can exceed 1 by ~1e-7
+            # depending on the platform's BLAS (observed on Windows CI)
+            assert np.all((array >= -1e-6) & (array <= 1 + 1e-6))
         # An exact claim match should produce (near-)maximal similarity
         assert cosine_lists[0][0, 0] == pytest.approx(1.0, abs=1e-4)
