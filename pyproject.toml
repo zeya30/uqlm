@@ -90,10 +90,13 @@ packages = ["uqlm"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-reruns = 3
-reruns_delay = 2.0
 markers = [
-    "asyncio"
+    "asyncio",
+    "integration: tests exercising subprocesses or external services; retried on failure in CI"
+]
+filterwarnings = [
+    "error:coroutine .* was never awaited:RuntimeWarning",
+    "error::pytest.PytestUnraisableExceptionWarning"
 ]
 
 [tool.ruff]
