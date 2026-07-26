@@ -6091,6 +6091,7 @@ dependencies = [
     { name = "scikit-learn", version = "1.9.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.11'" },
     { name = "scipy", version = "1.18.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.13'" },
     { name = "sentence-transformers" },
+    { name = "torch" },
     { name = "transformers" },
 ]
 
@@ -6141,6 +6142,7 @@ requires-dist = [
     { name = "scikit-learn", marker = "python_full_version >= '3.13'", specifier = ">=1.7.0,<2.0.0" },
     { name = "scipy", marker = "python_full_version >= '3.13'", specifier = ">=1.15.0,<2.0.0" },
     { name = "sentence-transformers", specifier = ">=3.4,<6.0" },
+    { name = "torch", specifier = ">=2.6.0" },
     { name = "transformers", specifier = ">=4.45.2,<5.0.0" },
 ]
 
