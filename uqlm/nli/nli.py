@@ -20,6 +20,7 @@ from transformers import AutoTokenizer, AutoModelForSequenceClassification
 from transformers import logging
 
 from uqlm.utils.device import get_best_device
+from uqlm.utils.warn import beta_warning
 
 logging.set_verbosity_error()
 
@@ -65,7 +66,7 @@ class NLI:
         device_map : str, default=None
             Optional device map (e.g. "auto") passed to AutoModelForSequenceClassification.from_pretrained() to
             shard or place the model across available devices. Requires the `accelerate` package. If provided,
-            takes precedence over `device`.
+            takes precedence over `device`. This option is in beta and may change in future releases.
         """
         # Handle device detection
         if device is None:
@@ -82,6 +83,7 @@ class NLI:
                 import accelerate  # noqa: F401
             except ImportError:
                 raise ImportError("The `device_map` option requires the `accelerate` package. Install it with `pip install accelerate` or `pip install 'uqlm[accelerate]'`.")
+            beta_warning("The `device_map` option (accelerate integration) is in beta. Please use with caution as it may change in future releases.")
             model = AutoModelForSequenceClassification.from_pretrained(nli_model_name, device_map=device_map)
             device = model.device
         else:
