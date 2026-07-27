@@ -52,6 +52,9 @@ repository = "https://github.com/cvs-health/uqlm"
 homepage = "https://github.com/cvs-health/uqlm"
 documentation = "https://cvs-health.github.io/uqlm/latest/index.html"
 
+[project.optional-dependencies]
+accelerate = ["accelerate>=0.26.0"]
+
 [dependency-groups]
 dev = [
     "python-dotenv>=1.2.0,<2.0.0",
