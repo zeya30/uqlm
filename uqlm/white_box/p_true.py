@@ -51,6 +51,8 @@ class PTrueScorer:
 
     @staticmethod
     def _extract_ptrue_from_logprobs_result(logprobs_result: List[Dict[str, Any]]) -> float:
+        if not logprobs_result:
+            return np.nan
         first_token_data = logprobs_result[0]
         token = first_token_data.get("token", "").strip().lower()
         logprob = first_token_data.get("logprob", None)

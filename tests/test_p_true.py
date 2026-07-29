@@ -104,6 +104,12 @@ def test_extract_ptrue_from_logprobs_result_missing_logprob():
     assert score != score  # NaN check
 
 
+def test_extract_ptrue_empty_logprobs():
+    """Empty logprobs list must return NaN instead of raising IndexError."""
+    result = PTrueScorer._extract_ptrue_from_logprobs_result([])
+    assert result != result  # NaN check
+
+
 def test_construct_ptrue_prompt():
     """Test the _construct_ptrue_prompt method."""
     prompt = "What is 2+2?"
